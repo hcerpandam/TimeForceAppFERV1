@@ -1,0 +1,5 @@
+//Corrige un problema de color al señalar errores cuando la casilla de mayoría de edad no está marcada
+
+.was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label {
+  color: #040101;
+}

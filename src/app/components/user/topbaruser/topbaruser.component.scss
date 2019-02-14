@@ -1,0 +1,19 @@
+//Colores
+
+.headerstyle{
+  color: #5bbeff;
+  background-color: #072146;
+  border-color: #072146;
+}
+
+.topbarstyle{
+  color: #99b4cc;
+  background-color: #004481;
+  border-color: #004481;
+}
+
+//Dado que hemmos eliminado referencias a navbar-dark tenemos que personalizar el color del navbar-toggler-icon para que sea visible al colapsar
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(91, 190, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}

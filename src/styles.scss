@@ -1,0 +1,7 @@
+//Bootstrap 4 custom
+@import "variables";//Imports custom sass (must be the first)
+
+@import "reset";//Imports custom sass (must be the last)
+
+//FontAwesome
+@import "~@fortawesome/fontawesome-free/css/all.css";

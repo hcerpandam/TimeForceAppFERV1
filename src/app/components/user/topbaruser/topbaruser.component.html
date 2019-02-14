@@ -1,0 +1,49 @@
+<!--Primer navbar-->
+<nav class="navbar navbar-expand-md headerstyle">
+  <ul class="navbar-nav mx-auto">
+    <!--Inicializamos blocklogo-->
+    <app-blocklogo [nombre]="nombre" [fuente]="fuente" [estilo]="estilo"></app-blocklogo>
+    <!--Fin blocklogo-->
+  </ul>
+</nav>
+<!--Segundo navbar-->
+<nav class="navbar navbar-expand-md topbarstyle">
+  <div class="container">
+    <!--Control de collapse del header mediante directiva ng-bootstrap-->
+    <button type="button" class="navbar-toggler navbar-toggler-right border-0" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="header">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="header" class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
+      <!--Fin control collapse-->
+
+      <!--Dejamos espaciado en medio-->
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <button type="button" class="btn topbarstyle" routerLink="/servicios">
+            {{textButtonMisServicios}}
+          </button>
+        </li>
+        <li class="mx-md-0 mx-lg-5">
+          <button type="button" class="btn topbarstyle" routerLink="/perfil">
+            {{textButtonMiCuenta}}
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn topbarstyle" routerLink="/buscadorservicios">
+            {{textButtonBuscadorServicios}}
+          </button>
+        </li>
+      </ul>
+      <!--Logout-->
+      <ul class="navbar-nav mt-md-2 pb-1 md-3">
+        <li class="nav-item">
+          <button class="btn topbarstyle">
+            Salir <i class="fas fa-sign-out-alt fa-fw"></i>
+          </button>
+        </li>
+      </ul>
+      <!--Fin logout-->
+    </div>
+  </div>
+</nav>

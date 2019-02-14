@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-md headerstyle">
+  <div class="container">
+    <!--Control de collapse del header mediante directiva ng-bootstrap-->
+    <button type="button" class="navbar-toggler navbar-toggler-right border-0" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="header">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="header" class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
+      <!--Fin control collapse-->
+      <!--Inicializamos blocklogo-->
+      <app-blocklogo [nombre]="nombre" [fuente]="fuente" [estilo]="estilo"></app-blocklogo>
+      <!--Fin blocklogo-->
+      <!--Dejamos espaciado en medio-->
+      <ul class="navbar-nav mx-auto">
+
+      </ul>
+      <!--Drodown idiomas disponibles-->
+      <ul class="navbar-nav mb-1">
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn headerstyle" id="ddIdiomas" ngbDropdownToggle>
+              <i class="fas fa-globe-europe fa-lg fa-fw"></i> {{selectedLanguage}}
+            </button>
+            <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="ddIdiomas">
+              <button class="dropdown-item" *ngFor="let language of languages" (click)="cambiaLenguaje(language.label)">{{language.label}}</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!--Botón registro-->
+      <ul class="navbar-nav mb-1">
+        <li class="nav-item">
+          <button class="btn headerstyle" id="botonRegistro" routerLink="/registro">
+            <i class="far fa-id-card fa-lg fa-fw"></i> Regístrate
+          </button>
+        </li>
+      </ul>
+      <!--Login-->
+      <ul class="navbar-nav mb-1">
+        <li class="nav-item">
+          <button class="btn headerstyle" id="botonLogin" routerLink="/login">
+            <i class="fas fa-sign-in-alt fa-lg fa-fw"></i> Entrar
+          </button>
+        </li>
+      </ul>
+      <!--Recuperar contraseña-->
+      <ul class="navbar-nav mb-1">
+        <li class="nav-item">
+          <button class="btn headerstyle" id="botonRecuperar" placement="bottom" ngbTooltip="¿Has olvidado tu contraseña" routerLink="/recuperacion">
+            <i class="far fa-question-circle fa-lg fa-fw"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,19 @@
+<div>
+  <h3>Detalle del servicio</h3>
+  <div *ngIf="servicio">
+    <span>{{servicio.descServicio}} ofrecido por {{servicio.ofertante.nombreUsuario}}</span>
+  </div>
+
+  <h4>Nuevo servicio</h4>
+  <input [(ngModel)]="servicioNuevo.categoria" placeholder="Categoria">
+  <br>
+  <input [(ngModel)]="servicioNuevo.descServicio" placeholder="Nombre">
+  <br>
+  <input [(ngModel)]="servicioNuevo.fechaHora" placeholder="Fecha" type="datetime-local">
+  <br>
+  <button (click)="crearServicio()">Crear Servicio</button>
+
+  <div *ngIf="servicioNuevo.idServicio">
+    Se ha creado el servicio con id {{servicioNuevo.idServicio}}}
+  </div>
+</div>
