@@ -1,8 +1,8 @@
 export class Usuario {
 
-   id: number;
+   idUsuario: number;
 
-   nombreUsuario: string;
+   nif: string;
 
    claveAcceso: string;
 
@@ -40,6 +40,6 @@ export class Usuario {
 
    baneado: boolean;
 
-   rol:string;
+   rol:number;
 
 }

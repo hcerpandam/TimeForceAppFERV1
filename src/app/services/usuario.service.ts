@@ -12,7 +12,8 @@ const httpOptions = {
 })
 export class UsuarioService {
 
-  private usuariosUrl = 'http://localhost:8080/api/usuarios';
+  private usuariosUrl='http://localhost:8080/api/usuarios';
+  private usuariosUrlRegistro = 'http://localhost:8080/api/registro';
 
   constructor(private http: HttpClient) {
   }
@@ -25,7 +26,7 @@ export class UsuarioService {
     return this.http.get<Usuario>(this.usuariosUrl + '/' + id);
   }
 
-  create(nuevoUsuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.usuariosUrl, nuevoUsuario, httpOptions);
+  createUsuario(nuevoUsuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(this.usuariosUrlRegistro, nuevoUsuario, httpOptions);
   }
 }

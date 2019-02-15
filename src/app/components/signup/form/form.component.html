@@ -80,11 +80,11 @@
           <!--Nombre-->
           <!--TODO: Controlar que solo meta letras-->
           <div class="form-group">
-            <label for="nombreUsuario">Nombre *:</label>
-            <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" [(ngModel)]="nuevoUsuario.nombreUsuario" #nombreUsuario="ngModel"
-                   [ngClass]="{ 'is-invalid': f.submitted && nombreUsuario.invalid }" required/>
-            <div *ngIf="f.submitted && nombreUsuario.invalid" class="invalid-feedback">
-              <div *ngIf="nombreUsuario.errors.required">Por favor, introduce tu nombre</div>
+            <label for="nombre">Nombre *:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nuevoUsuario.nombre" #nombre="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required/>
+            <div *ngIf="f.submitted && nombre.invalid" class="invalid-feedback">
+              <div *ngIf="nombre.errors.required">Por favor, introduce tu nombre</div>
             </div>
           </div>
           <!--Apellidos-->

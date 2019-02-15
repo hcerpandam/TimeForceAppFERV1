@@ -2,7 +2,7 @@ import {Usuario} from "./usuario";
 
 export class Servicio {
 
-   id: number;
+   idServicio: number;
 
    categoria: string;
 
