@@ -11,7 +11,7 @@ import{Router} from "@angular/router";
 })
 export class FormComponent implements OnInit {
 
-  private nuevoUsuario:Usuario=new Usuario();
+  nuevoUsuario:Usuario=new Usuario();
 
   //Solo pruebas
   onSubmit() {

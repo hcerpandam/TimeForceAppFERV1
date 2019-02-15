@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Usuario} from "../../../model/usuario";
-import {Router} from "@angular/router";
+import {UsuarioService} from "../../../services/usuario.service";
 
 
 @Component({
@@ -10,18 +10,18 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  usuario: Usuario;
+  usuario: Usuario=new Usuario();
 
-  constructor(private router: Router) {
-    this.usuario = new Usuario();
+  constructor(private usuarioService: UsuarioService) {
+
   }
 
   ngOnInit() {
 
   }
 
-  login(): void {
-
+  loginUsuario(): void {
+    this.usuarioService.findByNifAndClaveAcceso(this.usuario.nif,this.usuario.claveAcceso).subscribe(usuarioLogueado => {this.usuario = usuarioLogueado});
   }
 
 }

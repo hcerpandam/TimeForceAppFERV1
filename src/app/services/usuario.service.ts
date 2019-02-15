@@ -14,6 +14,7 @@ export class UsuarioService {
 
   private usuariosUrl='http://localhost:8080/api/usuarios';
   private usuariosUrlRegistro = 'http://localhost:8080/api/registro';
+  private usuariosUrlLogin = 'http://localhost:8080/api/login';
 
   constructor(private http: HttpClient) {
   }
@@ -28,5 +29,9 @@ export class UsuarioService {
 
   createUsuario(nuevoUsuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(this.usuariosUrlRegistro, nuevoUsuario, httpOptions);
+  }
+
+  findByNifAndClaveAcceso(nif:string,claveAcceso:string):Observable<Usuario> {
+    return this.http.get<Usuario>(this.usuariosUrlLogin);
   }
 }
