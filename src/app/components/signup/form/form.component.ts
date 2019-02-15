@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Usuario} from "../../../model/usuario";
 import {UsuarioService} from "../../../services/usuario.service";
-import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-form',
@@ -18,7 +17,7 @@ export class FormComponent implements OnInit {
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.nuevoUsuario));
   }
 
-  constructor(private usuarioService: UsuarioService, private route: ActivatedRoute) { }
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
   }

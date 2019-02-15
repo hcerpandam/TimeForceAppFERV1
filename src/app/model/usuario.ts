@@ -2,9 +2,9 @@ export class Usuario {
 
    id: number;
 
-   username: string;
+   nombreUsuario: string;
 
-   password: string;
+   claveAcceso: string;
 
    nombre: string;
 
@@ -40,6 +40,6 @@ export class Usuario {
 
    baneado: boolean;
 
-   roles:string[]= [];
+   rol:string;
 
 }
