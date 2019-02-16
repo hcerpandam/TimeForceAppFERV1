@@ -5,7 +5,7 @@
 -->
 <app-topbaruser></app-topbaruser>
 
-<div class="py-3 mb-3">
+<div class="py-3 mb-3 ml-5">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 mb-3">
@@ -19,8 +19,216 @@
         <hr>
       </div>
     </div>
+    <div class="row">
+      <div class="mx-auto col-lg-12 col-10" style="">
+        <form name="form" class="text-left" (ngSubmit)="f.form.valid && crearServicio()" #f="ngForm" novalidate>
 
-<div class="py-3 mb-3">
+          <div class="form-group">
+            <label for="categoria">Categoría *:</label>
+            <input type="text" class="form-control w-25" id="categoria" aria-describedby="userHelp" name="categoria"
+                   [(ngModel)]="nuevoServicio.categoria" #categoria="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && categoria.invalid }" required/>
+            <small id="nifHelp" class="form-text text-muted text-justify"> Introduce la categoría a la que pertenece tu servicio (Ejemplo: Clases)
+            </small>
+            <div *ngIf="f.submitted && categoria.invalid" class="invalid-feedback">
+              <div *ngIf="categoria.errors.required">Categoría es un campo requerido</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="descServicio">Descripción del servicio *:</label>
+            <input type="text" class="form-control" id="descServicio" aria-describedby="descServicio" name="descServicio"
+                   [(ngModel)]="nuevoServicio.descServicio" #descServicio="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && descServicio.invalid }" required minlength="10"/>
+            <small id="descServicioHelp" class="form-text text-muted text-justify"> Explica brevemente en qué consiste tu servicio
+            </small>
+            <div *ngIf="f.submitted && descServicio.invalid" class="invalid-feedback">
+              <div *ngIf="descServicio.errors.required">Descripción del servicio es un campo requerido</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fechaHora">Fecha y hora del servicio *:</label>
+            <input type="datetime-local" class="form-control" id="fechaHora" name="fechaHora" [(ngModel)]="nuevoServicio.fechaHora" #fechaHora="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && fechaHora.invalid }" required/>
+            <div *ngIf="f.submitted && fechaHora.invalid" class="invalid-feedback">
+              <div *ngIf="fechaHora.errors.required">Por favor, introduce la fecha y hora del servicio</div>
+            </div>
+          </div>
+          <!--Apellidos-->
+          <!--TODO: Controlar que solo meta letras-->
+          <div class="form-group">
+            <label for="apellidos">Apellidos *:</label>
+            <input type="text" class="form-control" id="apellidos" name="apellidos" [(ngModel)]="nuevoServicio.apellidos"
+                   #apellidos="ngModel" [ngClass]="{ 'is-invalid': f.submitted && apellidos.invalid }" required/>
+            <div *ngIf="f.submitted && apellidos.invalid" class="invalid-feedback">
+              <div *ngIf="apellidos.errors.required">Por favor, introduce tus apellidos</div>
+            </div>
+          </div>
+          <!--Fecha de nacimiento-->
+          <!--TODO: Controlar que la fecha no sea anterior a 100 años antes-->
+          <div class="form-group">
+            <label for="fechaNacimiento">Fecha de nacimiento *:</label>
+            <input type="date" class="form-control" id="fechaNacimiento" aria-describedby="fechaNacimiento" name="fechaNacimiento"
+                   [(ngModel)]="nuevoServicio.fechaNacimiento" #fechaNacimiento="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && fechaNacimiento.invalid }" required/>
+            <div *ngIf="f.submitted && fechaNacimiento.invalid" class="invalid-feedback">
+              <div *ngIf="fechaNacimiento.errors.required">Por favor, introduce una fecha</div>
+            </div>
+          </div>
+          <!--Datos de localización-->
+          <p class=""><b><b>Datos de localización</b></b></p>
+          <!--Tipo de vía-->
+          <!--TODO: Controlar que solo meta un valor const-tiposvia-->
+          <div class="form-group">
+            <label for="tipoVia">Tipo de vía *:</label>
+            <input type="text" class="form-control" id="tipoVia" name="tipoVia" [(ngModel)]="nuevoServicio.tipoVia"
+                   #tipoVia="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tipoVia.invalid }" required/>
+            <small id="tipoViaHelp" class="form-text text-muted text-justify">
+              Ejemplo: Calle, Callejón, Avenida, Plaza, Paseo
+            </small>
+            <div *ngIf="f.submitted && tipoVia.invalid" class="invalid-feedback">
+              <div *ngIf="tipoVia.errors.required">Debes introducir un tipo de vía válido</div>
+            </div>
+          </div>
+          <!--Nombre-->
+          <div class="form-group">
+            <label for="nombreVia">Nombre de vía *:</label>
+            <input type="text" class="form-control" id="nombreVia" name="nombreVia" [(ngModel)]="nuevoServicio.nombreVia"
+                   #nombreVia="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreVia.invalid }" required/>
+            <div *ngIf="f.submitted && nombreVia.invalid" class="invalid-feedback">
+              <div *ngIf="nombreVia.errors.required">Nombre de vía es un campo requerido</div>
+            </div>
+          </div>
+          <!--Número-->
+          <div class="form-group">
+            <label for="numeroPortal">Número de portal *:</label>
+            <input type="number" class="form-control" id="numeroPortal" name="numeroPortal" [(ngModel)]="nuevoServicio.numeroPortal"
+                   #numeroPortal="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numeroPortal.invalid }" required [maxLength]="3"  [min]="1" [max]="999"/>
+            <small id="numeroPortalHelp" class="form-text text-muted text-justify">
+              El número de portal no puede tener más de tres dígitos
+            </small>
+            <div *ngIf="f.submitted && numeroPortal.invalid" class="invalid-feedback">
+              <div *ngIf="numeroPortal.errors.required">Número de portal es un campo requerido</div>
+              <div *ngIf="numeroPortal.errors.maxlength">El número de portal no puede tener más de tres dígitos</div>
+            </div>
+          </div>
+          <!--Escalera-->
+          <div class="form-group">
+            <label for="escalera">Escalera:</label>
+            <input type="text" class="form-control" id="escalera" name="escalera" [(ngModel)]="nuevoServicio.escalera"
+                   #escalera="ngModel" [ngClass]="{ 'is-invalid': f.submitted && escalera.invalid }" maxlength="1">
+            <div *ngIf="f.submitted && escalera.invalid" class="invalid-feedback">
+              <div *ngIf="escalera.errors.maxlength">La escalera no puede tener más de una letra</div>
+            </div>
+          </div>
+          <!--Puerta-->
+          <div class="form-group">
+            <label for="puerta">Puerta:</label>
+            <input type="number" class="form-control" id="puerta" name="puerta" [(ngModel)]="nuevoServicio.puerta"
+                   #puerta="ngModel" [ngClass]="{ 'is-invalid': f.submitted && puerta.invalid }" [min]="1">
+            <div *ngIf="f.submitted && puerta.invalid" class="invalid-feedback">
+              <div *ngIf="puerta.errors.min">El número de puerta debe ser positivo</div>
+            </div>
+          </div>
+          <!--Localidad-->
+          <div class="form-group">
+            <label for="localidad">Localidad *:</label>
+            <input type="text" class="form-control" id="localidad" name="localidad"
+                   [(ngModel)]="nuevoServicio.localidad" #localidad="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && localidad.invalid }" required/>
+            <div *ngIf="f.submitted && localidad.invalid" class="invalid-feedback">
+              <div *ngIf="localidad.errors.required">Localidad es un campo requerido</div>
+            </div>
+          </div>
+          <!--Provincia-->
+          <!--TODO: Controlar que solo sea un valor de const-provincias y crear la constante-->
+          <div class="form-group">
+            <label for="provincia">Provincia *:</label>
+            <input type="text" class="form-control" id="provincia" name="provincia" [(ngModel)]="nuevoServicio.provincia"
+                   #provincia="ngModel" [ngClass]="{ 'is-invalid': f.submitted && provincia.invalid }" required/>
+            <div *ngIf="f.submitted && provincia.invalid" class="invalid-feedback">
+              <div *ngIf="provincia.errors.required">Provincia es un campo requerido</div>
+            </div>
+          </div>
+          <!--Código postal-->
+          <!--TODO: Controlar que meta exactamente 5 números positivos-->
+          <div class="form-group">
+            <label for="codPostal">Código postal *:</label>
+            <input type="number" class="form-control" id="codPostal" name="codPostal" [(ngModel)]="nuevoServicio.codPostal"
+                   #codPostal="ngModel" [ngClass]="{ 'is-invalid': f.submitted && codPostal.invalid }" required [minLength]="5" [maxLength]="5" [min]="11111" [max]="99999"/>
+            <small id="codPostalHelp" class="form-text text-muted text-justify">
+              El código postal consta de cinco números (ej. 41005)
+            </small>
+            <div *ngIf="f.submitted && codPostal.invalid" class="invalid-feedback">
+              <div *ngIf="codPostal.errors.required">Código postal es un campo requerido</div>
+            </div>
+          </div>
+          <!--Datos de contacto-->
+          <p class=""><b><b>Datos de contacto</b></b></p>
+          <!--Móvil-->
+          <!--TODO: Controlar que meta exactamente 9 números positivos-->
+          <div class="form-group">
+            <label for="telefono">Número de móvil *:</label>
+            <input type="number" class="form-control w-50" id="telefono" name="telefono"
+                   [(ngModel)]="nuevoServicio.telefono" #telefono="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && telefono.invalid }" required [minLength]="9" [maxLength]="9" [min]="111111111" [max]="999999999"/>
+            <small id="telefonoHelp" class="form-text text-muted text-justify">
+              El número de móvil consta de nueve números (ej. 637111111)
+            </small>
+            <div *ngIf="f.submitted && telefono.invalid" class="invalid-feedback">
+              <div *ngIf="telefono.errors.required">Por favor, introduce tu número de móvil</div>
+            </div>
+          </div>
+          <!--Email-->
+          <div class="form-group">
+            <label for="mail">Email *:</label>
+            <input type="email" class="form-control" id="mail" name="mail" [(ngModel)]="nuevoServicio.mail" #mail="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && mail.invalid }" required email/>
+            <div *ngIf="f.submitted && mail.invalid" class="invalid-feedback">
+              <div *ngIf="mail.errors.required">Por favor, introduce tu email</div>
+              <div *ngIf="mail.errors.email">Por favor, introduce un email válido</div>
+            </div>
+          </div>
+          <!--Aceptación de términos y condiciones-->
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="terms" name="terms" value="on"
+                     [(ngModel)]="nuevoServicio.terms" #terms="ngModel"
+                     [ngClass]="{ 'is-invalid': f.submitted && terms.invalid }" required/>
+              <label class="form-check-label" for="terms">
+                He leído, comprendo y acepto el
+                <app-dataprotectionlaw></app-dataprotectionlaw>
+              </label>
+              <div *ngIf="f.submitted && terms.invalid" class="invalid-feedback">
+                <div *ngIf="terms.errors.required">Tienes que confirmar los términos y condiciones</div>
+              </div>
+            </div>
+          </div>
+          <!--Confirmación de mayoría de edad legal para trabajar-->
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="age" name="age" value="on" [(ngModel)]="nuevoServicio.age" #age="ngModel"
+                     [ngClass]="{ 'is-invalid': f.submitted && age.invalid }" required/>
+              <label class="form-check-label" for="age">
+                Confirmo que tengo 16 años o más
+              </label>
+              <div *ngIf="f.submitted && age.invalid" class="invalid-feedback">
+                <div *ngIf="age.errors.required">Tienes que confirmar tu mayoría de edad legal</div>
+              </div>
+            </div>
+          </div>
+          <!--Enviar formulario-->
+          <div class="mx-auto text-center">
+            <button type="submit" class="btn headerstyle btn-lg"(click)="crearUsuario()">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="py-3 mb-3 ml-5">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 mb-3">
@@ -63,7 +271,7 @@
   </div>
 </div>
 
-<div class="py-1 mb-1">
+<div class="py-1 mb-1 ml-5">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 mb-3">

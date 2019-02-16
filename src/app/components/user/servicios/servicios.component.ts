@@ -12,6 +12,7 @@ export class ServiciosComponent implements OnInit {
 
   servicios: Array<Servicio>;
   servicioSeleccionado: Servicio;
+  nuevoServicio: Servicio;
   ofertante: Usuario;
   consumidor: Usuario;
 
