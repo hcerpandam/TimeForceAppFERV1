@@ -10,18 +10,14 @@ import {UsuarioService} from "../../../services/usuario.service";
 })
 export class LoginComponent implements OnInit {
 
-  usuario: Usuario=new Usuario();
+  usuariolog: Usuario;
 
   constructor(private usuarioService: UsuarioService) {
-
+      this.usuariolog=new Usuario();
   }
 
-  ngOnInit() {
+  ngOnInit() {}
 
-  }
-
-  loginUsuario(): void {
-    this.usuarioService.findByNifAndClaveAcceso(this.usuario.nif,this.usuario.claveAcceso).subscribe(usuarioLogueado => {this.usuario = usuarioLogueado});
-  }
+  loginUsuario(){}
 
 }

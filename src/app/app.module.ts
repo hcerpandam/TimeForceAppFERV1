@@ -39,7 +39,6 @@ import { ExplanationformComponent } from './components/signup/explanationform/ex
 import { DataprotectionlawComponent } from './components/signup/dataprotectionlaw/dataprotectionlaw.component';
 
 //User components
-import { UserComponent } from './components/user/user.component';
 import { TopbaruserComponent } from './components/user/topbaruser/topbaruser.component';
 import { ServiciosComponent } from './components/user/servicios/servicios.component';
 import { ServiciosmasterComponent } from './components/user/servicios/serviciosmaster/serviciosmaster.component';
@@ -61,7 +60,6 @@ import { ServiciosfinderComponent } from './components/user/serviciosfinder/serv
     FormComponent,
     ExplanationformComponent,
     DataprotectionlawComponent,
-    UserComponent,
     TopbaruserComponent,
     ServiciosComponent,
     ServiciosmasterComponent,

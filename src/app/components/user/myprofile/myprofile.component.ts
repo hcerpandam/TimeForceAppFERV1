@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Usuario} from "../../../model/usuario";
+import {UsuarioService} from "../../../services/usuario.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-myprofile',
@@ -8,18 +12,30 @@ import { Component, OnInit } from '@angular/core';
 export class MyprofileComponent implements OnInit {
 
   /**
-   * Declaración objeto model
+   * Declaración objeto usuario
    */
-  model: any = {};//TODO: Sustituir por lo que corresponda
+  private usuarioModificado: Usuario = new Usuario()
 
   //Solo pruebas
   onSubmit() {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.usuarioModificado));
   }
 
-  constructor() { }
 
-  ngOnInit() {
+  constructor(private usuarioService: UsuarioService, private router: Router, private activatedRoute: ActivatedRoute) { }
+
+  ngOnInit() {this.cargarUsuario()}
+
+  cargarUsuario(): void{
+    this.activatedRoute.params.subscribe(params => {
+      let id = params['id']
+      if(id){this.usuarioService.findById(id).subscribe( (usuarioModificado) => this.usuarioModificado = usuarioModificado)}})
+  }
+
+  modificarUsuario():void{
+    this.usuarioService.updateUsuario(this.usuarioModificado)
+      .subscribe( usuarioModificado => {this.router.navigate(['/perfil'])
+        swal.fire('Usuario Modificado', `Usuario ${usuarioModificado.nombre} modificado con éxito!`, 'success')})
   }
 
 }

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Usuario} from "../../../model/usuario";
 import {UsuarioService} from "../../../services/usuario.service";
-import{Router} from "@angular/router";
 
 
 @Component({
@@ -18,7 +17,7 @@ export class FormComponent implements OnInit {
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.nuevoUsuario));
   }
 
-  constructor(private usuarioService: UsuarioService, private router: Router) { }
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
   }

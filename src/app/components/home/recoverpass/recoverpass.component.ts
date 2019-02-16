@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Usuario} from "../../../model/usuario";
+
 
 @Component({
   selector: 'app-recoverpass',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecoverpassComponent implements OnInit {
 
-  constructor() { }
+  usuario: Usuario=new Usuario();
+
+  constructor() {
+
+  }
 
   ngOnInit() {
+
+  }
+
+  recoverPass(){
+
+
   }
 
 }

@@ -1,1 +1,50 @@
 <app-header></app-header>
+<div class="py-5 mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-3 text-center">
+        <h5>
+          <b><b>Recuperación de contraseña</b></b>
+        </h5>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mx-auto col-lg-6 col-10" style="">
+        <form name="form" class="text-center" (ngSubmit)="f.form.valid && recoverPass()" #f="ngForm" novalidate>
+          <!--Usuario-->
+          <div class="form-group mt-5 mb-5">
+            <label for="nif">Usuario (DNI)</label>
+            <input type="text" class="form-control mt-3" id="nif" aria-describedby="userHelp" name="nif"
+                   [(ngModel)]="usuario.nif" #nif="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && nif.invalid }" required minlength="9" maxlength="9"/>
+            <small id="nifHelp" class="form-text text-muted text-center"> Introduce la letra de tu documento sin
+              espacio ni guión
+            </small>
+            <div *ngIf="f.submitted && nif.invalid" class="invalid-feedback">
+              <div *ngIf="nif.errors.required">Usuario es un campo requerido</div>
+              <div *ngIf="nif.errors.minlength">Debes introducir 9 caracteres</div>
+              <div *ngIf="nif.errors.maxlength">Debes introducir 9 caracteres</div>
+            </div>
+          </div>
+          <!--Email-->
+          <div class="form-group">
+            <label for="mail">Email</label>
+            <input type="email" class="form-control mt-3" id="mail" aria-describedby="mail" name="mail"
+                   [(ngModel)]="usuario.mail" #mail="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && mail.invalid }" required minlength="8" maxlength="15"/>
+            <small id="mailHelp" class="form-text text-muted text-center"> Introduce el email que nos proporcionaste para que te enviemos tu contraseña
+            </small>
+            <div *ngIf="f.submitted && mail.invalid" class="invalid-feedback">
+              <div *ngIf="mail.errors.required">Email es un campo requerido</div>
+            </div>
+          </div>
+          <!--Recuperar contraseña-->
+          <div class="mx-auto text-center">
+            <button type="submit" class="btn headerstyle" (click)="recoverPass()">Recuperar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

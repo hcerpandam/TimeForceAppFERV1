@@ -11,12 +11,12 @@
     </div>
     <div class="row">
       <div class="mx-auto col-lg-6 col-10" style="">
-        <form name="form" class="text-center" (ngSubmit)="f.form.valid && loginUsuario()" #f="ngForm" novalidate>
+        <form name="form" class="text-center" (ngSubmit)="f.form.valid &&  loginUsuario()" #f="ngForm" novalidate>
           <!--Usuario-->
           <div class="form-group mt-5 mb-5">
             <label for="nif">Usuario (DNI)</label>
-            <input type="text" class="form-control mt-3" id="nif" aria-describedby="userHelp" name="nif"
-                   [(ngModel)]="usuario.nif" #nif="ngModel"
+            <input type="text" class="form-control mt-3" id="nif" aria-describedby="userHelp" name="Nif"
+                   [(ngModel)]="usuariolog.nif" #nif="ngModel"
                    [ngClass]="{ 'is-invalid': f.submitted && nif.invalid }" required minlength="9" maxlength="9"/>
             <small id="nifHelp" class="form-text text-muted text-center"> Introduce la letra de tu documento sin
               espacio ni guión
@@ -31,7 +31,7 @@
           <div class="form-group">
             <label for="claveAcceso">Clave de acceso</label>
             <input type="password" class="form-control mt-3" id="claveAcceso" aria-describedby="claveAcceso" name="claveAcceso"
-                   [(ngModel)]="usuario.claveAcceso" #claveAcceso="ngModel"
+                   [(ngModel)]="usuariolog.claveAcceso" #claveAcceso="ngModel"
                    [ngClass]="{ 'is-invalid': f.submitted && claveAcceso.invalid }" required minlength="8" maxlength="15"/>
             <small id="claveAccesoHelp" class="form-text text-muted text-center"> La clave de acceso debe tener entre 8 y 15
               caracteres
