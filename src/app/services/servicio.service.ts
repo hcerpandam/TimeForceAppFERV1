@@ -25,6 +25,14 @@ export class ServicioService {
     return this.http.get<Servicio>(this.serviciosUrl + '/' + id);
   }
 
+  findByIdOfertante(id: number): Observable<Servicio[]>{
+    return this.http.get<Servicio[]>(this.serviciosUrl + '/' + id);
+  }
+
+  findByIdConsumidor(id: number): Observable<Servicio[]>{
+    return this.http.get<Servicio[]>(this.serviciosUrl + '/' + id);
+  }
+
   createServicio(servicioNuevo: Servicio): Observable<Servicio> {
     return this.http.post<Servicio>(this.serviciosUrl, servicioNuevo, httpOptions);
   }

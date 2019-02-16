@@ -1,4 +1,103 @@
+<!--
 <div>
   <app-serviciosmaster [servicios]="servicios" (idServicioSeleccionado)="onSelect($event)"></app-serviciosmaster>
 </div>
+-->
+<app-topbaruser></app-topbaruser>
 
+<div class="py-3 mb-3">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <h6>
+          <b><b>Crear nuevo servicio</b></b>
+          <button type="button" class="btn lightstyle" (click)="isCollapsed1 = !isCollapsed1"
+                  [attr.aria-expanded]="!isCollapsed1" aria-controls="serviciosOfertados">
+            <i class="fas fa-arrow-circle-up fa-fw fa-2x"></i>
+          </button>
+        </h6>
+        <hr>
+      </div>
+    </div>
+
+<div class="py-3 mb-3">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <h6>
+          <b><b>Mis servicios ofertados</b></b>
+          <button type="button" class="btn lightstyle" (click)="isCollapsed1 = !isCollapsed1"
+                  [attr.aria-expanded]="!isCollapsed1" aria-controls="serviciosOfertados">
+            <i class="fas fa-arrow-circle-up fa-fw fa-2x"></i>
+          </button>
+        </h6>
+        <hr>
+      </div>
+    </div>
+    <table class="table table-bordered" id="serviciosOfertados" [ngbCollapse]="isCollapsed1">
+      <thead class="text-center">
+      <tr>
+        <th scope="col">Identificador</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Consumidor</th>
+        <th scope="col">Valoracion</th>
+        <th scope="col">Localización</th>
+        <th scope="col">Cancelado</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let servicio of servicios; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{servicio.idServicio}}</td>
+        <td>{{servicio.categoria}}</td>
+        <td>{{servicio.fechaHora}}</td>
+        <td>{{servicio.consumidor}}</td>
+        <td>{{servicio.valoracion}}</td>
+        <td>{{servicio.localizacion_acor}}</td>
+        <td>{{servicio.cancelado}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="py-1 mb-1">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <h6>
+          <b><b>Mis servicios consumidos</b></b>
+          <button type="button" class="btn lightstyle" (click)="isCollapsed2= !isCollapsed2"
+                  [attr.aria-expanded]="!isCollapsed2" aria-controls="serviciosConsumidos">
+            <i class="fas fa-arrow-circle-up fa-fw fa-2x"></i>
+          </button>
+        </h6>
+        <hr>
+      </div>
+    </div>
+    <table class="table table-bordered" id="serviciosConsumidos" [ngbCollapse]="isCollapsed2">
+      <thead class="text-center">
+      <tr>
+        <th scope="col">Identificador</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Ofertante</th>
+        <th scope="col">Valoracion</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let servicio of servicios; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{servicio.idServicio}}</td>
+        <td>{{servicio.categoria}}</td>
+        <td>{{servicio.fechaHora}}</td>
+        <td>{{servicio.ofertante}}</td>
+        <td>{{servicio.valoracion}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
