@@ -16,10 +16,10 @@ const routes: Routes = [
   {path: 'registro', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: 'recuperacion', component: RecoverpassComponent},
-  {path: 'usuarios/perfil', component: MyprofileComponent},
-  {path: 'usuarios/buscadorservicios', component: ServiciosfinderComponent},
-  {path: 'usuarios/servicios', component: ServiciosComponent},
-  {path: 'usuarios/servicios/:id', component: ServiciosdetailComponent}
+  {path: 'perfil/:id', component: MyprofileComponent},
+  {path: 'buscadorservicios', component: ServiciosfinderComponent},
+  {path: 'servicios', component: ServiciosComponent},
+  {path: 'servicios/:id', component: ServiciosdetailComponent}
 ];
 
 @NgModule({

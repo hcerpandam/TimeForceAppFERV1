@@ -14,32 +14,32 @@
         <form name="form" class="text-center" (ngSubmit)="f.form.valid &&  loginUsuario()" #f="ngForm" novalidate>
           <!--Usuario-->
           <div class="form-group mt-5 mb-5">
-            <label for="nif">Usuario (DNI)</label>
-            <input type="text" class="form-control mt-3" id="nif" aria-describedby="userHelp" name="Nif"
-                   [(ngModel)]="usuariolog.nif" #nif="ngModel"
-                   [ngClass]="{ 'is-invalid': f.submitted && nif.invalid }" required minlength="9" maxlength="9"/>
-            <small id="nifHelp" class="form-text text-muted text-center"> Introduce la letra de tu documento sin
+            <label for="username">Usuario (DNI)</label>
+            <input type="text" class="form-control mt-3" id="username" aria-describedby="userHelp" name="Nif"
+                   [(ngModel)]="usuariolog.username" #username="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" required minlength="9" maxlength="9"/>
+            <small id="usernameHelp" class="form-text text-muted text-center"> Introduce la letra de tu documento sin
               espacio ni guión
             </small>
-            <div *ngIf="f.submitted && nif.invalid" class="invalid-feedback">
-              <div *ngIf="nif.errors.required">Usuario es un campo requerido</div>
-              <div *ngIf="nif.errors.minlength">Debes introducir 9 caracteres</div>
-              <div *ngIf="nif.errors.maxlength">Debes introducir 9 caracteres</div>
+            <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+              <div *ngIf="username.errors.required">Usuario es un campo requerido</div>
+              <div *ngIf="username.errors.minlength">Debes introducir 9 caracteres</div>
+              <div *ngIf="username.errors.maxlength">Debes introducir 9 caracteres</div>
             </div>
           </div>
           <!--Contraseña-->
           <div class="form-group">
-            <label for="claveAcceso">Clave de acceso</label>
-            <input type="password" class="form-control mt-3" id="claveAcceso" aria-describedby="claveAcceso" name="claveAcceso"
-                   [(ngModel)]="usuariolog.claveAcceso" #claveAcceso="ngModel"
-                   [ngClass]="{ 'is-invalid': f.submitted && claveAcceso.invalid }" required minlength="8" maxlength="15"/>
-            <small id="claveAccesoHelp" class="form-text text-muted text-center"> La clave de acceso debe tener entre 8 y 15
+            <label for="password">Clave de acceso</label>
+            <input type="password" class="form-control mt-3" id="password" aria-describedby="password" name="password"
+                   [(ngModel)]="usuariolog.password" #password="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="8" maxlength="15"/>
+            <small id="passwordHelp" class="form-text text-muted text-center"> La clave de acceso debe tener entre 8 y 15
               caracteres
             </small>
-            <div *ngIf="f.submitted && claveAcceso.invalid" class="invalid-feedback">
-              <div *ngIf="claveAcceso.errors.required">Clave de acceso es un campo requerido</div>
-              <div *ngIf="claveAcceso.errors.minlength">La contraseña debe tener entre 8 y 15 caracteres</div>
-              <div *ngIf="claveAcceso.errors.maxlength">La contraseña debe tener entre 8 y 15 caracteres</div>
+            <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+              <div *ngIf="password.errors.required">Clave de acceso es un campo requerido</div>
+              <div *ngIf="password.errors.minlength">La contraseña debe tener entre 8 y 15 caracteres</div>
+              <div *ngIf="password.errors.maxlength">La contraseña debe tener entre 8 y 15 caracteres</div>
             </div>
           </div>
           <!--Loguearse-->

@@ -2,9 +2,9 @@ export class Usuario {
 
    idUsuario: number;
 
-   nif: string;
+   username: string;
 
-   claveAcceso: string;
+   password: string;
 
    nombre: string;
 

@@ -14,7 +14,7 @@ export class MyprofileComponent implements OnInit {
   /**
    * Declaración objeto usuario
    */
-  private usuarioModificado: Usuario = new Usuario()
+  private usuarioModificado: Usuario = new Usuario();
 
   //Solo pruebas
   onSubmit() {
@@ -28,14 +28,25 @@ export class MyprofileComponent implements OnInit {
 
   cargarUsuario(): void{
     this.activatedRoute.params.subscribe(params => {
-      let id = params['id']
+      let id = params['id'];
       if(id){this.usuarioService.findById(id).subscribe( (usuarioModificado) => this.usuarioModificado = usuarioModificado)}})
   }
 
   modificarUsuario():void{
     this.usuarioService.updateUsuario(this.usuarioModificado)
-      .subscribe( usuarioModificado => {this.router.navigate(['/perfil'])
+      .subscribe( usuarioModificado => {this.router.navigate(['/usuarios/perfil/:id']);
         swal.fire('Usuario Modificado', `Usuario ${usuarioModificado.nombre} modificado con éxito!`, 'success')})
   }
 
+  eliminarUsuario(usuarioModificado: Usuario):void{
+    this.usuarioService.deleteUsuario(usuarioModificado.idUsuario)
+      .subscribe((usuarioModificado)=>{this.router.navigate(['/home]']);
+        swal.fire(
+          'Usuario Eliminado!',
+          `Usuario ${usuarioModificado.nombre} eliminado con éxito.`,
+          'success'
+        )
+      }
+    )
+  }
 }
