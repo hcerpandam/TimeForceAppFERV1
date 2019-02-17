@@ -34,10 +34,6 @@ export class Usuario {
 
    balance: number;
 
-   suspendido: boolean;
-
-   diasSuspension: number;
-
    baneado: boolean;
 
    rol:number;

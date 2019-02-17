@@ -18,7 +18,7 @@
         <th scope="col">Fecha</th>
         <th scope="col">Ofertante</th>
         <th scope="col">Valoracion</th>
-        <th scope="col">Cancelar</th>
+        <th scope="col">Cancelado</th>
       </tr>
       </thead>
 
@@ -30,7 +30,7 @@
         <td>{{servicio.fechaHora}}</td>
         <td>{{servicio.ofertante}}</td>
         <td>{{servicio.valoracion}}</td>
-        <td><button type="button" class="btn bg-danger text-light" (click)="cancelarServicio()">Cancelar servicio</button> </td>
+        <td>{{servicio.cancelado}}</td>
       </tr>
       </tbody>
     </table>

@@ -12,6 +12,12 @@
   border-color: #004481;
 }
 
+.form-control::-webkit-input-placeholder {
+  color: #99b4cc;
+  opacity: 1;
+}
+
+
 //Dado que hemmos eliminado referencias a navbar-dark tenemos que personalizar el color del navbar-toggler-icon para que sea visible al colapsar
 
 .navbar-toggler-icon {

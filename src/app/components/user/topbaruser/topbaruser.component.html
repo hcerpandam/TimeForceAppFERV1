@@ -14,11 +14,11 @@
             [attr.aria-expanded]="!isCollapsed" aria-controls="header">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div id="header" class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
+    <div id="header" class="collapse navbar-collapse ml-5" [ngbCollapse]="isCollapsed">
       <!--Fin control collapse-->
 
       <!--Dejamos espaciado en medio-->
-      <ul class="navbar-nav mx-auto">
+      <ul class="navbar-nav mx-auto ml-5">
         <li class="nav-item">
           <button type="button" class="btn topbarstyle" routerLink="/perfil/{id}">
             {{textButtonMiCuenta}}
@@ -39,12 +39,16 @@
             {{textButtonServiciosConsumidos}}
           </button>
         </li>
-        <li>
-          <button type="button" class="btn topbarstyle" routerLink="/buscadorservicios">
-            {{textButtonBuscadorServicios}}
-          </button>
-        </li>
       </ul>
+      <!--Buscador de servicios-->
+      <div class="input-group col-md-3">
+        <input class="form-control py-2 topbarstyle" type="search" id="inputsearch">
+          <span class="input-group-append">
+            <button class="btn topbarstyle " type="button" routerLink="/buscadorservicios">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+      </div>
       <!--Logout-->
       <ul class="navbar-nav mt-md-2 pb-1 md-3">
         <li class="nav-item">
