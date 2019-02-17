@@ -40,10 +40,10 @@ import { DataprotectionlawComponent } from './components/signup/dataprotectionla
 
 //User components
 import { TopbaruserComponent } from './components/user/topbaruser/topbaruser.component';
-import { ServiciosComponent } from './components/user/servicios/servicios.component';
-import { ServiciosmasterComponent } from './components/user/servicios/serviciosmaster/serviciosmaster.component';
-import { ServiciosdetailComponent } from './components/user/servicios/serviciosdetail/serviciosdetail.component';
 import { MyprofileComponent } from './components/user/myprofile/myprofile.component';
+import { CreateservicioComponent } from "./components/user/createservicio/createservicio.component";
+import { OfferedservicesComponent } from "./components/user/offeredservices/offeredservices.component";
+import { ConsumedservicesComponent } from "./components/user/consumedservices/consumedservices.component";
 import { ServiciosfinderComponent } from './components/user/serviciosfinder/serviciosfinder.component';
 
 @NgModule({
@@ -61,13 +61,13 @@ import { ServiciosfinderComponent } from './components/user/serviciosfinder/serv
     ExplanationformComponent,
     DataprotectionlawComponent,
     TopbaruserComponent,
-    ServiciosComponent,
-    ServiciosmasterComponent,
-    ServiciosdetailComponent,
     MyprofileComponent,
     ServiciosfinderComponent,
     LoginComponent,
-    RecoverpassComponent
+    RecoverpassComponent,
+    CreateservicioComponent,
+    OfferedservicesComponent,
+    ConsumedservicesComponent
   ],
   imports: [
     BrowserModule,

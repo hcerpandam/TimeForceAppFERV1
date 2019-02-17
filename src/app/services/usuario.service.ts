@@ -10,7 +10,7 @@ export class UsuarioService {
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
-  private usuariosUrl='http://localhost:8080/api/usuarios';
+  private usuariosUrl='http://localhost:8080/api/perfil';
   private usuariosUrlRegistro = 'http://localhost:8080/api/registro';
   private usuariosUrlModificarUsuario='http://localhost:8080/api/perfil';
 

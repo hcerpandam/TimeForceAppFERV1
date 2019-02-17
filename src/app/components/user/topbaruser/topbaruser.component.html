@@ -20,13 +20,23 @@
       <!--Dejamos espaciado en medio-->
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <button type="button" class="btn topbarstyle" routerLink="/servicios">
-            {{textButtonMisServicios}}
+          <button type="button" class="btn topbarstyle" routerLink="/perfil/{id}">
+            {{textButtonMiCuenta}}
           </button>
         </li>
-        <li class="mx-md-0 mx-lg-5">
-          <button type="button" class="btn topbarstyle" routerLink="/perfil/:id">
-            {{textButtonMiCuenta}}
+        <li class="nav-item">
+          <button type="button" class="btn topbarstyle" routerLink="/crearservicio">
+            {{textButtonCrearServicio}}
+          </button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn topbarstyle" routerLink="/serviciosofertados">
+            {{textButtonServiciosOfertados}}
+          </button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn topbarstyle" routerLink="/serviciosconsumidos">
+            {{textButtonServiciosConsumidos}}
           </button>
         </li>
         <li>

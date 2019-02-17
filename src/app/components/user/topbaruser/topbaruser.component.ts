@@ -18,7 +18,9 @@ export class TopbaruserComponent implements OnInit {
    * Declaracion e inicialización de atributos por data-binding
    */
   textButtonMiCuenta='Mi cuenta';
-  textButtonMisServicios='Mis servicios';
+  textButtonCrearServicio='Crear servicio';
+  textButtonServiciosOfertados='Mis servicios ofertados';
+  textButtonServiciosConsumidos='Mis servicios consumidos';
   textButtonBuscadorServicios='Buscador de servicios';
 
   /**

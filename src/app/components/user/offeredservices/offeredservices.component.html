@@ -1,0 +1,40 @@
+<app-topbaruser></app-topbaruser>
+
+<div class="py-3 mb-3 ml-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <h5 class="text-center">
+          <b><b>Mis servicios ofertados</b></b>
+        </h5>
+        <hr>
+      </div>
+    </div>
+    <table class="table table-bordered" id="serviciosOfertados">
+      <thead class="text-center">
+      <tr>
+        <th scope="col">Identificador</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Consumidor</th>
+        <th scope="col">Valoracion</th>
+        <th scope="col">Localización</th>
+        <th scope="col">Cancelado</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let servicio of servicios; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{servicio.idServicio}}</td>
+        <td>{{servicio.categoria}}</td>
+        <td>{{servicio.fechaHora}}</td>
+        <td>{{servicio.consumidor}}</td>
+        <td>{{servicio.valoracion}}</td>
+        <td>{{servicio.localizacion_acor}}</td>
+        <td>{{servicio.cancelado}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

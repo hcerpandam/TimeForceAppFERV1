@@ -34,7 +34,7 @@ export class MyprofileComponent implements OnInit {
 
   modificarUsuario():void{
     this.usuarioService.updateUsuario(this.usuarioModificado)
-      .subscribe( usuarioModificado => {this.router.navigate(['/usuarios/perfil/:id']);
+      .subscribe( usuarioModificado => {this.router.navigate(['/perfil/',usuarioModificado.idUsuario]);
         swal.fire('Usuario Modificado', `Usuario ${usuarioModificado.nombre} modificado con éxito!`, 'success')})
   }
 

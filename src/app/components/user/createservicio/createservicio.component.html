@@ -1,0 +1,80 @@
+<app-topbaruser></app-topbaruser>
+
+<div class="py-3 mb-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-3 text-center">
+        <h5>
+          <b><b>Crear nuevo servicio</b></b>
+        </h5>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mx-auto col-lg-6 col-10" style="">
+        <form name="form" class="text-left" (ngSubmit)="f.form.valid && crearServicio()" #f="ngForm" novalidate>
+          <!--Categoría del servicio-->
+          <div class="form-group">
+            <label for="categoria">Categoría *:</label>
+            <input type="text" class="form-control w-25" id="categoria" aria-describedby="categoria" name="categoria"
+                   [(ngModel)]="nuevoServicio.categoria" #categoria="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && categoria.invalid }" required/>
+            <small id="categoriaHelp" class="form-text text-muted text-justify"> Introduce la categoría a la que pertenece tu servicio (Ejemplo: Clases)
+            </small>
+            <div *ngIf="f.submitted && categoria.invalid" class="invalid-feedback">
+              <div *ngIf="categoria.errors.required">Categoría es un campo requerido</div>
+            </div>
+          </div>
+          <!--Descripción del servicio-->
+          <div class="form-group">
+            <label for="descServicio">Descripción del servicio *:</label>
+            <input type="text" class="form-control" id="descServicio" aria-describedby="descServicio" name="descServicio"
+                   [(ngModel)]="nuevoServicio.descServicio" #descServicio="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && descServicio.invalid }" required minlength="10"/>
+            <small id="descServicioHelp" class="form-text text-muted text-justify"> Explica brevemente en qué consiste tu servicio
+            </small>
+            <div *ngIf="f.submitted && descServicio.invalid" class="invalid-feedback">
+              <div *ngIf="descServicio.errors.required">Descripción del servicio es un campo requerido</div>
+            </div>
+          </div>
+          <!--Fecha y hora del servicio-->
+          <div class="form-group">
+            <label for="fechaHora">Fecha y hora del servicio *:</label>
+            <input type="datetime-local" class="form-control" id="fechaHora" name="fechaHora" [(ngModel)]="nuevoServicio.fechaHora" #fechaHora="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && fechaHora.invalid }" required/>
+            <div *ngIf="f.submitted && fechaHora.invalid" class="invalid-feedback">
+              <div *ngIf="fechaHora.errors.required">Por favor, introduce la fecha y hora del servicio</div>
+            </div>
+          </div>
+          <!--Localización propuesta-->
+          <div class="form-group">
+            <label for="localizacion_acor">Localización *:</label>
+            <input type="number" class="form-control" id="localizacion_acor" name="localizacion_acor" [(ngModel)]="nuevoServicio.localizacion_acor"
+                   #localizacion_acor="ngModel" [ngClass]="{ 'is-invalid': f.submitted && localizacion_acor.invalid }" required [min]="1" [max]="3"/>
+            <small id="localizacionAcorHelp" class="form-text text-muted text-justify"> Introduce 1 si quieres que el servicio se realice en tu casa, 2 en casa del consumidor, 3 si te es indiferente
+            </small>
+            <div *ngIf="f.submitted && localizacion_acor.invalid" class="invalid-feedback">
+              <div *ngIf="localizacion_acor.errors.required">Por favor, introduce la localización del servicio</div>
+            </div>
+          </div>
+          <!--Precio-->
+          <div class="form-group">
+            <label for="precio">Precio *:</label>
+            <input type="number" class="form-control" id="precio" aria-describedby="precio" name="precio"
+                   [(ngModel)]="nuevoServicio.precio" #precio="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && precio.invalid }" required/>
+            <small id="precioHelp" class="form-text text-muted text-justify"> Introduce el número de horas de este servicio
+            </small>
+            <div *ngIf="f.submitted && precio.invalid" class="invalid-feedback">
+              <div *ngIf="precio.errors.required">Por favor, introduce el número de horas</div>
+            </div>
+          </div>
+          <!--Crear servicio-->
+          <div class="mx-auto text-center mt-3 mb-2">
+            <button type="submit" class="btn headerstyle btn-lg" (click)="crearServicio()">Crear servicio</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
