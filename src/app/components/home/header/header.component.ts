@@ -3,6 +3,7 @@ import {Constidiomas} from "../../../constants/constidiomas";
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, tap} from 'rxjs/operators';
+import {AuthServiceService} from "../../../services/auth-service.service";
 
 @Component({
   selector: 'app-header',
@@ -33,8 +34,7 @@ export class HeaderComponent implements OnInit {
 
   userName:string;
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient, private authService: AuthServiceService) {}
 
   /**
    * Cambia en el dropdown el lenguaje por defecto por el seleccionado
@@ -45,26 +45,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(){
-    let url = 'http://localhost:8080/usuario';
 
-    let headers: HttpHeaders = new HttpHeaders({
-      'Authorization': 'Basic ' + sessionStorage.getItem('token')
-    });
-
-    let options = { headers: headers };
-    this.http.post<Observable<Object>>(url, {}, options).
-    subscribe(principal => {
-        this.userName = principal['name'];
-      },
-      error => {
-        if(error.status == 401)
-          alert('Unauthorized');
-      }
-    );
-  }
-
-  logout() {
-    sessionStorage.setItem('token', '');
   }
 
   private handleError(error: HttpErrorResponse) {

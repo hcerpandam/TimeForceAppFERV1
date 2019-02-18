@@ -20,7 +20,7 @@ export class ServicioService {
   }
 
   cancelServicio(servicioCancelado: Servicio): Observable<Servicio>{
-    return this.http.put<Servicio>(`${this.serviciosUrl}/${servicioCancelado.idServicio}`, servicioCancelado, {headers: this.httpHeaders})
+    return this.http.post<Servicio>(`${this.serviciosUrl}/cancelar/${servicioCancelado.idServicio}`, servicioCancelado, {headers: this.httpHeaders})
   }
 
   findAll(): Observable<Servicio[]> {
@@ -32,11 +32,15 @@ export class ServicioService {
   }
 
   findByIdOfertante(id: number): Observable<Servicio[]>{
-    return this.http.get<Servicio[]>(this.serviciosUrl + '/' + id);
+    return this.http.get<Servicio[]>(this.serviciosUrl + '/ofertante/' + id);
   }
 
   findByIdConsumidor(id: number): Observable<Servicio[]>{
-    return this.http.get<Servicio[]>(this.serviciosUrl + '/' + id);
+    return this.http.get<Servicio[]>(this.serviciosUrl + '/consumidor/' + id);
+  }
+
+  findByFiltros(palabra: string): Observable<Servicio[]>{
+    return this.http.get<Servicio[]>(this.serviciosUrl + '/buscadorservicios/' + palabra);
   }
 
 

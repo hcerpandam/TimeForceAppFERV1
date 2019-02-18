@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Usuario} from "../../../model/usuario";
-import {UsuarioService} from "../../../services/usuario.service";
-import { Router, ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
+import {Usuario} from '../../../model/usuario';
+import {ActivatedRoute, Router} from '@angular/router';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {AuthServiceService} from '../../../services/auth-service.service';
 
 
 @Component({
@@ -16,27 +14,39 @@ export class LoginComponent implements OnInit {
 
   usuariolog: Usuario;
 
-  /*constructor(private usuarioService: UsuarioService) {
-      this.usuariolog=new Usuario();
-  }*/
-
-  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) {
-    this.usuariolog=new Usuario();
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private http: HttpClient,
+              private authService: AuthServiceService) {
+    this.usuariolog = new Usuario();
   }
 
-  ngOnInit() {sessionStorage.setItem('token', '');}
+  ngOnInit() {
+    sessionStorage.setItem('token', '');
+  }
 
-  loginUsuario(){let url = 'http://localhost:8080/login';
-    this.http.post<Observable<boolean>>(url, {
-      userName: this.usuariolog.username,
-      password: this.usuariolog.password
-    }).subscribe(isValid => {
-      if (isValid) {
+  loginUsuario() {
+    const url = 'http://localhost:8080/login';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${btoa(this.usuariolog.username + ':' + this.usuariolog.password)}`
+      })
+    };
+
+    this.http.get<Usuario>(url, httpOptions).subscribe(usuario => {
+      if (usuario != null) {
         sessionStorage.setItem('token', btoa(this.usuariolog.username + ':' + this.usuariolog.password));
-        this.router.navigate(['']);
+        this.authService.setUsuario(usuario);
+        if(usuario.rol.nombreRol==='ROLE_USUARIO'){
+          this.router.navigate(['/perfil/'+usuario.idUsuario]);
+        }else{
+          this.router.navigate(['/perfil/'+usuario.idUsuario]);
+        }
       } else {
-        alert("Authentication failed.")
-      }});
+        alert('Authentication failed.');
+      }
+    });
   }
 
 }

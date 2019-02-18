@@ -7,6 +7,7 @@
     </div>
     <div class="row">
       <div class="mx-auto col-lg-6 col-10" style="">
+        <h5 class="mb-4 text-primary"><b><b>Hola {{usuarioModificado.nombre}}, tu saldo actual es de {{usuarioModificado.balance}} HORAS</b></b></h5>
         <form name="form" class="text-left" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
           <!--Datos de acceso-->
           <p class=""><b><b>Datos de acceso</b></b></p>

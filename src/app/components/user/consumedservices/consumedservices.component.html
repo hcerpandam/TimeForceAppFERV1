@@ -1,16 +1,15 @@
 <app-topbaruser></app-topbaruser>
 
-<div class="py-1 mb-1 ml-5">
+<div class="py-1 mt-3 mb-1 ml-3 mr-3">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 mb-3">
-        <h5 class="text-center">
+        <h6 class="text-center">
           <b><b>Mis servicios consumidos</b></b>
-        </h5>
-        <hr>
+        </h6>
       </div>
     </div>
-    <table class="table table-bordered" id="serviciosConsumidos" [ngbCollapse]="isCollapsed2">
+    <table class="table table-bordered" id="serviciosConsumidos">
       <thead class="text-center">
       <tr>
         <th scope="col">Identificador</th>
@@ -23,12 +22,11 @@
       </thead>
 
       <tbody>
-      <tr *ngFor="let servicio of servicios; index as i">
-        <th scope="row">{{ i + 1 }}</th>
+      <tr *ngFor="let servicio of servicios">
         <td>{{servicio.idServicio}}</td>
         <td>{{servicio.categoria}}</td>
         <td>{{servicio.fechaHora}}</td>
-        <td>{{servicio.ofertante}}</td>
+        <td>{{servicio.ofertante.nombre}}{{servicio.ofertante.apellidos}}</td>
         <td>{{servicio.valoracion}}</td>
         <td>{{servicio.cancelado}}</td>
       </tr>

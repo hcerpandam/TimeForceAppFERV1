@@ -46,6 +46,15 @@ import { OfferedservicesComponent } from "./components/user/offeredservices/offe
 import { ConsumedservicesComponent } from "./components/user/consumedservices/consumedservices.component";
 import { ServiciosfinderComponent } from './components/user/serviciosfinder/serviciosfinder.component';
 
+//Admin components
+import { TopbaradminComponent } from './components/admin/topbaradmin/topbaradmin.component';
+import { BuscadorserviciossospechososComponent } from './components/admin/buscadorserviciossospechosos/buscadorserviciossospechosos.component';
+import { BanearusuariosComponent } from './components/admin/banearusuarios/banearusuarios.component';
+
+//Login and interceptors
+import {AuthServiceService} from "./services/auth-service.service";
+import {httpInterceptorProviders} from "./http-interceptors";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +76,10 @@ import { ServiciosfinderComponent } from './components/user/serviciosfinder/serv
     RecoverpassComponent,
     CreateservicioComponent,
     OfferedservicesComponent,
-    ConsumedservicesComponent
+    ConsumedservicesComponent,
+    TopbaradminComponent,
+    BuscadorserviciossospechososComponent,
+    BanearusuariosComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +89,7 @@ import { ServiciosfinderComponent } from './components/user/serviciosfinder/serv
     FormsModule,
     NgbModule
   ],
-  providers: [UsuarioService, ServicioService],
+  providers: [httpInterceptorProviders, AuthServiceService, UsuarioService, ServicioService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -14,15 +14,11 @@
       <ul class="navbar-nav mx-auto">
 
       </ul>
-      <div class="col-md-6 col-md-offset-3 text-light">
-        <h1>Hi {{userName}}!</h1>
-        <p><a [routerLink]="['/login']" (click) ="logout()">Logout</a></p>
-      </div>
       <!--Drodown idiomas disponibles-->
       <ul class="navbar-nav mb-1">
         <li class="nav-item">
           <div ngbDropdown class="d-inline-block">
-            <button class="btn headerstyle" id="ddIdiomas" ngbDropdownToggle>
+            <button class="btn headerstyle" disabled id="ddIdiomas" ngbDropdownToggle>
               <i class="fas fa-globe-europe fa-lg fa-fw"></i> {{selectedLanguage}}
             </button>
             <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="ddIdiomas">

@@ -1,2 +1,36 @@
 <app-topbaruser></app-topbaruser>
 
+<div class="py-1 mt-3 mb-1 ml-3 mr-3">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <h6 class="text-center">
+          <b><b>Resultados</b></b>
+        </h6>
+      </div>
+    </div>
+    <table class="table table-bordered" id="serviciosConsumidos">
+      <thead class="text-center">
+      <tr>
+        <th scope="col">Ofertante</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Categoría</th>
+        <th scope="col">Descripión</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Reservar</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let servicio of servicios">
+        <td>{{servicio.ofertante.nombre}}{{servicio.ofertante.apellidos}}</td>
+        <td>{{servicio.fechaHora}}</td>
+        <td>{{servicio.categoria}}</td>
+        <td>{{servicio.descServicio}}</td>
+        <td>{{servicio.precio}}</td>
+        <button type="button" class="btn btn-success" (click)="reservarServicio(servicio)">Reservar</button>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

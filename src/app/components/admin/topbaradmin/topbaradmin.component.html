@@ -18,34 +18,21 @@
       <!--Fin control collapse-->
 
       <!--Dejamos espaciado en medio-->
-      <ul class="navbar-nav mx-auto ml-5">
-        <li class="nav-item">
-          <button type="button" class="btn topbarstyle" (click)="navegar()">
-            {{textButtonMiCuenta}}
-          </button>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="btn topbarstyle" routerLink="/crearservicio">
-            {{textButtonCrearServicio}}
-          </button>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="btn topbarstyle" routerLink="/serviciosofertados">
-            {{textButtonServiciosOfertados}}
-          </button>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="btn topbarstyle" routerLink="/serviciosconsumidos">
-            {{textButtonServiciosConsumidos}}
-          </button>
-        </li>
-      </ul>
-      <!--Buscador de servicios-->
-      <div class="input-group col-md-2">
-        <label for="inputsearch"></label>
-        <input class="form-control py-2 headerstyle" type="search" id="inputsearch">
-          <span class="input-group-append">
-            <button class="btn headerstyle" type="button" (click)="buscar(palabra)">
+
+      <!--Buscador de servicios sospechosos-->
+      <div class="input-group col-md-4">
+        <input class="form-control py-2 headerstyle" type="search" id="inputsearch1">
+        <span class="input-group-append">
+            <button class="btn headerstyle" type="button" routerLink="/buscadorserviciossospechosos">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+      </div>
+      <!--Buscador de servicios sospechosos-->
+      <div class="input-group col-md-4">
+        <input class="form-control py-2 headerstyle" type="search" id="inputsearch2">
+        <span class="input-group-append">
+            <button class="btn headerstyle" type="button" routerLink="/banearusuarios">
               <i class="fa fa-search"></i>
             </button>
           </span>

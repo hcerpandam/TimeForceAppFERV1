@@ -10,6 +10,8 @@ import {RecoverpassComponent} from "./components/home/recoverpass/recoverpass.co
 import {CreateservicioComponent} from "./components/user/createservicio/createservicio.component";
 import {OfferedservicesComponent} from "./components/user/offeredservices/offeredservices.component";
 import {ConsumedservicesComponent} from "./components/user/consumedservices/consumedservices.component";
+import {BuscadorserviciossospechososComponent} from "./components/admin/buscadorserviciossospechosos/buscadorserviciossospechosos.component";
+import {BanearusuariosComponent} from "./components/admin/banearusuarios/banearusuarios.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -21,7 +23,9 @@ const routes: Routes = [
   {path: 'crearservicio', component: CreateservicioComponent},
   {path: 'serviciosofertados', component: OfferedservicesComponent},
   {path: 'serviciosconsumidos', component: ConsumedservicesComponent},
-  {path: 'buscadorservicios', component: ServiciosfinderComponent}
+  {path: 'buscadorservicios', component: ServiciosfinderComponent},
+  {path: 'banearusuarios', component: BanearusuariosComponent},
+  {path: 'buscadorserviciossospechosos', component: BuscadorserviciossospechososComponent}
 
 ];
 

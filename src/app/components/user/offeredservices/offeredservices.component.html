@@ -1,13 +1,12 @@
 <app-topbaruser></app-topbaruser>
 
-<div class="py-3 mb-3 ml-5">
+<div class="py-1 mt-3 mb-1 ml-3 mr-3">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 mb-3">
-        <h5 class="text-center">
+        <h6 class="text-center">
           <b><b>Mis servicios ofertados</b></b>
-        </h5>
-        <hr>
+        </h6>
       </div>
     </div>
     <table class="table table-bordered" id="serviciosOfertados">
@@ -18,23 +17,23 @@
         <th scope="col">Fecha</th>
         <th scope="col">Consumidor</th>
         <th scope="col">Valoracion</th>
-        <th scope="col">Localización</th>
         <th scope="col">Cancelado</th>
       </tr>
       </thead>
 
       <tbody>
-      <tr *ngFor="let servicio of servicios; index as i">
-        <th scope="row">{{ i + 1 }}</th>
+      <tr *ngFor="let servicio of servicios">
         <td>{{servicio.idServicio}}</td>
         <td>{{servicio.categoria}}</td>
         <td>{{servicio.fechaHora}}</td>
-        <td>{{servicio.consumidor}}</td>
+        <td>{{servicio.consumidor.nombre}} {{servicio.consumidor.apellidos}}</td>
         <td>{{servicio.valoracion}}</td>
-        <td>{{servicio.localizacion_acor}}</td>
-        <td><button type="button" class="btn bg-danger text-light" (click)="cancelarServicio()">Cancelar servicio</button> </td>
+        <td *ngIf="servicio.cancelado===false">
+            <button type="button" class="btn bg-danger text-light" (click)="cancelarServicio(servicio)">Cancelar servicio</button>
+        </td>
       </tr>
       </tbody>
     </table>
   </div>
 </div>
+

@@ -14,9 +14,9 @@ export class Servicio {
 
    consumidor: Usuario;
 
-   localizacion_acor: number;
+   localizacion_acor: string;
 
-   valoracion: number;
+   valoracion: string;
 
    mensaje: string;
 

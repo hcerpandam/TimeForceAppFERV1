@@ -31,7 +31,7 @@
          La diferencia es que ngClass recibe un hashmap en el que la clave es la clase y el valor un boleano, de forma que si el boleano es false no aplica la clase
         - [ngClass]="{ 'is-invalid': f.submitted && userid.invalid }" required minlength="9"
         Si se ha dado a enviar y no se cumple required y minlength, ponemos la clase como is-invalid, que es de bootstrap-->
-        <form name="form" class="text-left" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+        <form name="form" class="text-left" (ngSubmit)="f.form.valid && crearUsuario()" #f="ngForm"
               [mustMatch]="['password', 'cAcceso2']" novalidate>
           <!--Datos de acceso-->
           <p class=""><b><b>Datos de acceso</b></b></p>
@@ -252,7 +252,7 @@
           </div>
           <!--Enviar formulario-->
           <div class="mx-auto text-center">
-            <button type="submit" class="btn headerstyle btn-lg"(click)="crearUsuario()">Enviar</button>
+            <button type="button" class="btn headerstyle btn-lg" (click)="crearUsuario()">Enviar</button>
           </div>
         </form>
       </div>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Servicio} from "../../../model/servicio";
 import {ServicioService} from "../../../services/servicio.service";
+import {AuthServiceService} from "../../../services/auth-service.service";
+import swal from "sweetalert2";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-createservicio',
@@ -11,16 +14,22 @@ export class CreateservicioComponent implements OnInit {
 
   nuevoServicio: Servicio=new Servicio();
 
-  constructor(private servicioService: ServicioService) { }
+  constructor(private servicioService: ServicioService, private authService: AuthServiceService, private router: Router) { }
 
   ngOnInit() {
   }
 
   crearServicio():void {
-    this.servicioService.createServicio(this.nuevoServicio).subscribe(servicioCreado => {this.nuevoServicio = servicioCreado});
-    console.log(JSON.stringify(this.nuevoServicio));
-    //swal.fire('Servicio Creado', `Usuario ${this.nuevoServicio.categoria} creado con éxito!`, 'success')
-    //this.router.navigate(['/servicios']);
+    this.nuevoServicio.ofertante=this.authService.getUsuario();
+    this.servicioService.createServicio(this.nuevoServicio).subscribe(
+      servicioCreado => {
+        this.nuevoServicio = servicioCreado;
+        swal.fire('Exito', `Servicio ${this.nuevoServicio.categoria} se ha creado!`, 'success');
+        this.router.navigate(['/perfil/'+this.authService.getUsuario().idUsuario]);
+      },
+      error1 => {
+        swal.fire('Fallo', `Servicio ${this.nuevoServicio.categoria} no se ha creado!`, 'error')
+      });
   }
 
 }

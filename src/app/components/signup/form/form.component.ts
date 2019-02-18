@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Usuario} from "../../../model/usuario";
 import {UsuarioService} from "../../../services/usuario.service";
 import swal from "sweetalert2";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -13,20 +14,16 @@ export class FormComponent implements OnInit {
 
   nuevoUsuario:Usuario=new Usuario();
 
-  //Solo pruebas
-  onSubmit() {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.nuevoUsuario));
-  }
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit() {
   }
 
   crearUsuario():void {
     this.usuarioService.createUsuario(this.nuevoUsuario).subscribe(usuarioCreado => {this.nuevoUsuario = usuarioCreado});
-    swal.fire('Usuario Creado', `Usuario ${this.nuevoUsuario.nombre} creado con éxito!`, 'success')
-    //this.router.navigate(['/login']);
+    swal.fire('Usuario Creado', `Usuario ${this.nuevoUsuario.nombre} creado con éxito!`, 'success');
+    this.router.navigate(['/login']);
   }
 
 

@@ -1,3 +1,5 @@
+import {Rol} from "./rol";
+
 export class Usuario {
 
    idUsuario: number;
@@ -36,6 +38,6 @@ export class Usuario {
 
    baneado: boolean;
 
-   rol:number;
+   rol: Rol;
 
 }
