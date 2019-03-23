@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the **back-end** of an open source project for an online time banking.
+This is the **front-end** of an open source project for an online time banking.
 
 Is being developed with Spring (Spring boot tool), JPA, Hibernate and MySQL.
 
