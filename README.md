@@ -4,13 +4,13 @@
 
 This is the **front-end** of an open source project for an online time banking.
 
-Is being developed with Spring (Spring boot tool), JPA, Hibernate and MySQL.
+It is related with this backend: 
 
-The release date of the whole product will be on **february the 18th**
+Was developed with **Angular 7 and ng-bootstrap**
 
-Since then an until june, new versions will be released. In case you want to contribute, pull-out requests will be appreciated.
+The release date of the whole product was on **february the 18th**
 
-Final release will be on **june the 30th**. After that it's all yours.
+Saddenly this project has been abandoned, so come of the components haven't been implemented.
 
 ## Languages
 
