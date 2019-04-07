@@ -4,17 +4,21 @@
 
 This is the **front-end** of an open source project for an online time banking.
 
-It is related with this backend: 
+It is related with this backend: https://github.com/hcerpandam/TimeForceAppBERV1
 
 Was developed with **Angular 7 and ng-bootstrap**
 
 The release date of the whole product was on **february the 18th**
 
-Saddenly this project has been abandoned, so come of the components haven't been implemented.
+Saddenly this project has been abandoned, so some of the components (especially the ones referred to admin) haven't been implemented.
+
+Also due to to problems with Spring security others may not work properly.
+
+Feel free to clone and continue this project.
 
 ## Languages
 
-Comments in the project and documentation will be made in spanish. I'll publish that too.
+Comments in the project and documentation where made in spanish.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
 
